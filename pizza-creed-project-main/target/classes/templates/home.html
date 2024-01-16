@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Pizza Creed</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/4874d070ea.js"></script>
+    <!-- Favicons -->
+    <link rel="icon" th:href="@{/img/favicon.png}">
+    <link rel="apple-touch-icon" th:href="@{/img/apple-touch-icon.png}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <style>
+   body {
+            background-image: url('https://images.arla.com/recordid/DF1FEC6A-1E82-4435-B62EF9C786303EC2/pepperoni-pizza.jpg?format=jpg&width=1200&height=630&mode=crop');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+        h1{
+            color: dark;
+        }
+
+    h {
+  color: white;
+}
+
+span {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+ @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        animation: fadeInUp 1s ease-in-out;
+    }
+          footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+
+        }
+    </style>
+</head>
+<body style=" " class="body">
+<nav class="fixed-top bg-dark text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-2">
+                <h1 class="logo me-auto h"><a href="/home" class="text-light text-decoration-none"><em>Galle Pizza Creed</em></a></h1>
+            </div>
+            <div class="col-lg-2 mt-3">
+                <a class="book-a-table-btn btn btn-outline-light" th:href="@{/}">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container" style="color:black;">
+
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+            <div class="card text-center" style="background-color: rgba(255, 255, 255, 0.7);">
+                <div class="card-header">
+                    <strong>Product Management</strong>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Product Lifecycle Management</h5>
+                    <a class="btn btn-warning btn-block" th:href="@{/product}">Admin</a>
+                </div>
+                <div class="card-footer text-body-secondary"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card text-center" style="background-color: rgba(255, 255, 255, 0.7);">
+                <div class="card-header">
+                    <strong>Buy Products</strong>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Product Store</h5>
+                    <a class="btn btn-warning btn-block">Customer</a>
+                </div>
+                <div class="card-footer text-body-secondary"></div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+    <div style="color: white" class="mt-3">
+        <div class="card text-center" style="background-color: rgba(0, 0, 0, 0.7);">
+            <div class="card-body">
+                <h1 class="text-center">Welcome to Galle Pizza Creed!</h1>
+                <p class="m-3">Savor the unparalleled taste of our expertly crafted pizzas, prepared with the utmost care using the freshest and most premium ingredients. Whether you're a fan of the classic Margherita, eager to explore the bold flavors of our unique signature pizzas, or inclined to create your own culinary masterpiece, we cater to the diverse preferences of every pizza aficionado.</p>
+                <p class="m-3">Experience the ease of online ordering or treat yourself to a delightful in-person visit to our store, where you can fully immerse yourself in the true essence of pizza perfection. Embark on a journey of flavors that will tantalize your taste buds and leave you yearning for more. Indulge in the ultimate satisfaction that comes from relishing our exceptional pizzas!</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<!--  Footer -->
+<footer class="bg-dark text-light" style="margin-top: 380px">
+    <div class="container text-center">
+        <p>&copy; Copyright <strong>Pizza Creed</strong>. All Rights Reserved</p>
+    </div>
+</footer>
+<!-- End Footer -->
+<div id="preloader"></div>
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<script th:src="@{/js/main.js}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded',function(event){
+  var dataText = [ "Galle Pizza Creed", "Galle Pizza Creed", "Galle Pizza Creed", "Galle Pizza Creed"];
+  function typeWriter(text, i, fnCallback) {
+    if (i < (text.length)) {
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      }, 100);
+    }
+    else if (typeof fnCallback == 'function') {
+      setTimeout(fnCallback, 700);
+    }
+  }
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 20000);
+     }
+    if (i < dataText[i].length) {
+     typeWriter(dataText[i], 0, function(){
+       StartTextAnimation(i + 1);
+     });
+    }
+  }
+  StartTextAnimation(0);
+});
+</script>
+</body>
+
+</html>

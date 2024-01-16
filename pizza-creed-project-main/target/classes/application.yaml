@@ -1,0 +1,21 @@
+server:
+  port: '8088'
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/GallePizzaCreed?createDatabaseIfNotExist=true
+    password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  thymeleaf:
+    cache: 'false'
+logging:
+  level:
+    org:
+      hibernate:
+        type: TRACE
+        SQL: DEBUG

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Pizza Creed-Manage Product</title>
+    <meta content="Pizza Creed" name="description">
+    <meta content="pizza" name="keywords">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+       body {
+            background-image: url('https://images.arla.com/recordid/DF1FEC6A-1E82-4435-B62EF9C786303EC2/pepperoni-pizza.jpg?format=jpg&width=1200&height=630&mode=crop');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+        h1{
+            color: dark;
+        }
+
+    h {
+  color: white;
+}
+
+span {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .table-container {
+        animation: fadeIn 1s ease-in-out;
+    }
+          footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+
+        }
+    </style>
+</head>
+<body style=" " class="body">
+<nav class="fixed-top bg-dark text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-2">
+                <h1 class="logo me-auto h"><a href="/home" class="text-light text-decoration-none"><em>Galle Pizza Creed</em></a></h1>
+            </div>
+            <div class="col-lg-2 mt-3">
+                <a class="book-a-table-btn btn btn-outline-light" th:href="@{/}">Logout</a>
+                <a class="book-a-table-btn btn btn-outline-light" th:href="@{/home}">Home</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div>
+    <div class="row">
+        <div class="card" style="background-color: rgba(0, 0, 0, 0.7);">
+            <div class="card-body">
+                <h1 style="text-align:center; color:white;">Product Management</h1>
+            </div>
+    <div class="row">
+    <tr>
+        <div class="mb-3" align="center">
+            <a class="btn btn-warning btn-block" th:href="@{'/new_product'}">Add New Product</a>
+        </div>
+    </tr>
+    </div>
+            <div class="row shadow-lg">
+                <tr>
+                    <div align="center" class="col-sm-8 mt-3 mb-3 table-container">
+                        <div align="center" class="panel-body">
+                            <table class="table table-bordered mb-3" style="margin:0 150px 0 150px;">
+                                <thead class="thead-dark" style="background-color: #f8f9fa;">
+                                <tr style="background-color: #f8f9fa;">
+                                    <th style="padding:0 30px 0 30px;">ID</th>
+                                    <th style="padding:0 30px 0 30px;">Name</th>
+                                    <th style="padding:0 30px 0 30px;">Size</th>
+                                    <th style="padding:0 30px 0 30px;">Price</th>
+                                    <th style="padding:0 30px 0 30px;">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="product : ${listProduct }">
+                                    <td th:text="${product.id}" style="color:white;">ID</td>
+                                    <td th:text="${product.Name}" style="color:white;">Name</td>
+                                    <td th:text="${product.Size}" style="color:white;">Size</td>
+                                    <td th:text="${product.Price}" style="color:white;">Price</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-secondary py-0" th:href="@{'/edits/' + ${product.id}}">Edit</a>
+
+                                        <a class="btn btn-sm btn-danger py-0" th:href="@{'/deletes/' + ${product.id}}">Delete</a>
+
+                                        <a class="btn btn-sm btn-success py-0">Add to cart</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </tr>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ======= Footer ======= -->
+<footer class="bg-dark text-light" style="margin-top: 380px">
+    <div class="container text-center">
+        <p>&copy; Copyright <strong>Pizza Creed</strong>. All Rights Reserved</p>
+    </div>
+</footer>
+<div id="preloader"></div>
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+<script th:src="@{/js/main.js}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded',function(event){
+  var dataText = [ "Galle Pizza Creed", "Galle Pizza Creed", "Galle Pizza Creed", "Galle Pizza Creed"];
+  function typeWriter(text, i, fnCallback) {
+    if (i < (text.length)) {
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      }, 100);
+    }
+    else if (typeof fnCallback == 'function') {
+      setTimeout(fnCallback, 700);
+    }
+  }
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 20000);
+     }
+    if (i < dataText[i].length) {
+     typeWriter(dataText[i], 0, function(){
+       StartTextAnimation(i + 1);
+     });
+    }
+  }
+  StartTextAnimation(0);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create New Product</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/4874d070ea.js"></script>
+    <!-- Favicons -->
+    <link rel="icon" th:href="@{/img/favicon.png}">
+    <link rel="apple-touch-icon" th:href="@{/img/apple-touch-icon.png}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+</head>
+
+<style>
+        body {
+            background-image: url('https://images.arla.com/recordid/DF1FEC6A-1E82-4435-B62EF9C786303EC2/pepperoni-pizza.jpg?format=jpg&width=1200&height=630&mode=crop');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+.white-text {
+    color: orange;
+  }
+
+    h {
+  color: white;
+}
+
+span {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card-form {
+        animation: fadeInUp 1s ease-in-out;
+    }
+
+          footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+
+        }
+    </style>
+<body class="body">
+
+    <nav class="fixed-top bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mt-2">
+                    <h1 class="logo me-auto h"><a href="/home" class="text-light text-decoration-none"><em>Galle Pizza Creed</em></a></h1>
+                </div>
+                <div class="col-lg-2 mt-3">
+                    <a class="book-a-table-btn btn btn-outline-light" th:href="@{/}">Logout</a>
+                    <a class="book-a-table-btn btn btn-outline-light" th:href="@{/home}">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div align="center">
+        <div class="card" style="background-color: rgba(0, 0, 0, 0.7);">
+            <h1 class="white-text">---- Pizza Product ----</h1>
+        </div>
+        <div class="card mx-auto shadow-lg mt-2 card-form" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.7);">
+            <div class="card-body">
+                <form action="#" method="post" th:action="@{/saves}" th:object="${product}">
+                    <div alight="left">
+                        <tr>
+                            <label class="form-label"><strong>Product Name</strong></label>
+                            <td>
+                                <input th:field="*{id}" type="hidden"/>
+                                <input class="form-control" placeholder="Name" th:field="*{Name}" type="text"/>
+                            </td>
+                        </tr>
+                    </div>
+                    <div alight="left">
+                        <tr>
+                            <label class="form-label"><strong>Product Size</strong></label>
+                            <td>
+                                <select class="form-control" th:field="*{Size}">
+                                    <option value="">-----Select Size-----</option>
+                                    <option value="small">Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </div>
+                    <div alight="left">
+                        <tr>
+                            <label class="form-label"><strong>Product Price</strong></label>
+                            <td><input class="form-control" placeholder="Price" th:field="*{Price}" type="text"/></td>
+                        </tr>
+                    </div>
+
+                    <br>
+                    <tr>
+                        <td colspan="2">
+                            <button class="btn btn-warning btn-block" type="submit">Save</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger"><a th:href="@{/product}"></a>Cancel</button>
+                        </td>
+                    </tr>
+                </form>
+            </div>
+        </div>
+</div>
+<footer class="bg-dark text-light" style="margin-top: 380px">
+    <div class="container text-center">
+        <p>&copy; Copyright <strong>Pizza Creed</strong>. All Rights Reserved</p>
+    </div>
+</footer>
+    <script>
+  document.addEventListener('DOMContentLoaded',function(event){
+  var dataText = [ "Galle Pizza Creed", "Galle Pizza Creed", "Galle Pizza Creed", "Galle Pizza Creed"];
+  function typeWriter(text, i, fnCallback) {
+    if (i < (text.length)) {
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      }, 100);
+    }
+    else if (typeof fnCallback == 'function') {
+      setTimeout(fnCallback, 700);
+    }
+  }
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 20000);
+     }
+    if (i < dataText[i].length) {
+     typeWriter(dataText[i], 0, function(){
+       StartTextAnimation(i + 1);
+     });
+    }
+  }
+  StartTextAnimation(0);
+});
+</script>
+</body>
+</html>
