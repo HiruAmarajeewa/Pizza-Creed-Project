@@ -27,10 +27,6 @@ Follow these steps to set up and run the Pizza Creed backend on your local machi
   - View the shopping basket.
   - Checkout (Payment handled separately).
 
-## 🧪 Testing
-
-Explore and test the API endpoints using [Postman](https://www.postman.com/). Find detailed test cases in the [Test Cases](./test-cases) directory.
-
 ## 📊 Project Structure
 
 ```plaintext
