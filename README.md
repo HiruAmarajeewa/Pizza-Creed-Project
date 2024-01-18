@@ -48,6 +48,9 @@ Follow these steps to set up and run the Pizza Creed backend on your local machi
 └── ...
 ```
 
+## 🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests to enhance or fix any issues in the system.
+
 ## 🚀 Installation
 
 Clone the repository to your local machine using the following command:
